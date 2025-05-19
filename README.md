@@ -1,2 +1,58 @@
 # API_FILMS-
 Este projeto implementa um sistema CRUD para gerenciar informações sobre filmes utilizando um banco de dados MySQL. Ele permite criar, visualizar, atualizar e excluir registros de filmes, facilitando o controle e a manutenção dos dados de forma eficiente.
+
+Como Configurar 
+1. Clone o repositório
+Clone o repositório utilizando o seguinte comando:
+
+git clone <URL_DO_REPOSITORIO>
+2. Instale as dependências
+Navegue até o diretório do projeto clonado e execute o comando abaixo para instalar as dependências:
+
+npm install
+3. Configure as variáveis de ambiente
+Crie um arquivo .env na raiz do projeto e adicione as seguintes configurações:
+
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=***********
+DB_NAME=db_controle_filmes
+PORT=3000
+
+4. Crie o banco de dados
+Para criar o banco de dados, execute os seguintes comandos no MySQL:
+
+-- Criação do banco de dados
+CREATE DATABASE db_controle_filmes;
+
+-- Ativar o banco de dados
+USE db_controle_filmes;
+
+
+5. Crie a tabela de filmes
+Execute o script SQL abaixo para criar a tabela de filmes:
+
+CREATE TABLE tbl_filme (
+  id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  nome VARCHAR(80) NOT NULL,
+  duracao TIME NOT NULL,
+  sinopse TEXT NOT NULL,
+  data_lancamento DATE NOT NULL,
+  foto_capa VARCHAR(200)
+);
+
+
+6. Insira dados iniciais no banco
+Execute o script SQL abaixo para inserir alguns dados iniciais na tabela tbl_filme:
+
+INSERT INTO tbl_filme (nome, duracao, sinopse, data_lancamento, foto_capa) VALUES
+('O Poderoso Chefão', '02:55', 'Um épico da máfia que segue a história da família Corleone.', '1972-03-24', 'https://example.com/poderoso_chefao.jpg'),
+('Cidadão Kane', '01:59', 'A vida e o legado do magnata da imprensa Charles Foster Kane.', '1941-05-01', 'https://example.com/cidadao_kane.jpg'),
+-- Adicione mais filmes conforme necessário...
+;
+
+
+7. Execute o servidor
+Após instalar as dependências e configurar o banco de dados, inicie o servidor com o seguinte comando:
+node server.js
+O servidor estará rodando na porta 3000 e estará conectado ao MySQL.
